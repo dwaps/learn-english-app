@@ -16,6 +16,7 @@
             android:name=".activity.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.LearnEnglish">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

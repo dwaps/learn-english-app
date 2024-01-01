@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">LearnEnglish</string>
+
+<!--HOME PAGE-->
+    <string name="vocabulary_title">Vocabulaire</string>
+    <string name="grammar_title">Grammaire</string>
+    <string name="verbs_title">Verbes</string>
+    <string name="title_chunk1">Apprendre</string>
+    <string name="title_chunk2">l\'Anglais</string>
+    <string name="settings">Paramètres</string>
+    <string name="author_name">Michaël Cornillon</string>
 </resources>

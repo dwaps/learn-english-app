@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -38,17 +39,17 @@ fun Header() {
     Row {
         HeaderBlock(
             colorId = R.color.blue_vocabulary,
-            text = "Vocabulary",
+            text = stringResource(R.string.vocabulary_title),
             verticalPadding = 50
         )
         Column {
             HeaderBlock(
                 colorId = R.color.orange_grammar,
-                text = "Grammaire"
+                text = stringResource(R.string.grammar_title)
             )
             HeaderBlock(
                 colorId = R.color.red_verbs,
-                text = "Verbes"
+                text = stringResource(R.string.verbs_title)
             )
         }
     }
@@ -56,7 +57,7 @@ fun Header() {
 
 @Composable
 fun HeaderBlock(colorId: Int, text: String, verticalPadding: Int = 30) {
-    val middleScreen = LocalConfiguration.current.screenWidthDp / 2;
+    val middleScreen = LocalConfiguration.current.screenWidthDp / 2
 
     Column(
         modifier = Modifier
@@ -83,15 +84,15 @@ fun TitleBlock() {
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxWidth()
     ) {
-        TitleBlockText(text = "Apprendre")
+        TitleBlockText(text = stringResource(R.string.title_chunk1))
         TitleBlockText(
-            text = "l'Anglais",
+            text = stringResource(R.string.title_chunk2),
             dir = TextAlign.End
         )
         Spacer(modifier = Modifier.height(30.dp))
         Icon(
             Icons.Rounded.Settings,
-            contentDescription = "Paramètres",
+            contentDescription = stringResource(R.string.settings),
             Modifier.size(30.dp)
         )
     }
@@ -112,7 +113,7 @@ fun TitleBlockText(text: String, dir: TextAlign = TextAlign.Start) {
 fun Footer() {
     Column(verticalArrangement = Arrangement.Bottom) {
         Text(
-            text = "Michaël Cornillon",
+            text = stringResource(R.string.author_name),
             textAlign = TextAlign.Center,
             fontSize = 14.sp,
             modifier = Modifier
