@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">LearnEnglish</string>
 
-<!--HOME PAGE-->
+    <!--HOME PAGE-->
     <string name="vocabulary_title">Vocabulaire</string>
     <string name="grammar_title">Grammaire</string>
     <string name="verbs_title">Verbes</string>
@@ -9,4 +9,9 @@
     <string name="title_chunk2">l\'Anglais</string>
     <string name="settings">Paramètres</string>
     <string name="author_name">Michaël Cornillon</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_list_view">ListView</string>
+    <string name="title_activity_card_view">CardView</string>
+    <string name="title_activity_translation_view">TranslationView</string>
+    <string name="title_activity_rules_view">RulesView</string>
 </resources>
