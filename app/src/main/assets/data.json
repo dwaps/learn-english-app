@@ -1,0 +1,83 @@
+{
+  "grammar": [],
+  "vocabulary": {
+    "categories": ["family","flowers","colors","numbers"],
+    "words": [
+      {
+        "mother": {
+          "id": "573d4c6d-13dd-4037-9528-808a850bc75e",
+          "category": 0,
+          "french": "mère",
+          "examples": [
+            {
+              "isFavorite": false,
+              "sentence": "The mother is in the kitchen",
+              "french": "La mère est dans la cuisine"
+            },
+            {
+              "isFavorite": false,
+              "sentence": "The mother is in the garage",
+              "french": "La mère est dans le garage"
+            },
+            {
+              "isFavorite": false,
+              "sentence": "The mother is in the room",
+              "french": "La mère est dans la chambre"
+            }
+          ]
+        }
+      }
+      {
+        "mother": {
+          "id": 0,
+          "category": 0,
+          "french": "mère",
+          "examples": [
+            {
+              "isFavorite": false,
+              "sentence": "The mother is in the kitchen",
+              "french": "La mère est dans la cuisine"
+            },
+            {
+              "isFavorite": false,
+              "sentence": "The mother is in the garage",
+              "french": "La mère est dans le garage"
+            },
+            {
+              "isFavorite": false,
+              "sentence": "The mother is in the room",
+              "french": "La mère est dans la chambre"
+            }
+          ]
+        }
+      },
+      {
+        "father": {
+          "id": 1,
+          "category": 0,
+          "french": "père",
+          "examples": [
+            {
+              "isFavorite": false,
+              "sentence": "The father is in the kitchen",
+              "french": "La père est dans la cuisine"
+            },
+            {
+              "isFavorite": false,
+              "sentence": "The father is in the garage",
+              "french": "La père est dans le garage"
+            },
+            {
+              "isFavorite": false,
+              "sentence": "The father is in the room",
+              "french": "La père est dans la chambre"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "verbs": [],
+  "settings": [],
+  "favorites": []
+}
