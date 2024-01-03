@@ -1,7 +1,9 @@
 package io.github.dwaps.learnenglish.ui
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -9,23 +11,99 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.BottomNavigation
+import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import io.github.dwaps.learnenglish.R
 import io.github.dwaps.learnenglish.models.ListItem
 import io.github.dwaps.learnenglish.models.listItems
 
+sealed class BottomNavItem(val route: String, val icon: ImageVector, @StringRes var label: Int) {
+    object Vocabulary : BottomNavItem("vocabulary", Icons.Default.Home, R.string.vocabulary_title)
+    object Grammar : BottomNavItem("grammar", Icons.Default.Search, R.string.grammar_title)
+    object Verbs : BottomNavItem("verbs", Icons.Default.Person, R.string.verbs_title)
+}
+
+@Composable
+fun BottomNavigationBar(navController: NavController) {
+    BottomNavigation {
+        val navBackStackEntry by navController.currentBackStackEntryAsState()
+        val currentRoute = navBackStackEntry?.destination?.route
+
+        val items = listOf(
+            BottomNavItem.Vocabulary,
+            BottomNavItem.Grammar,
+            BottomNavItem.Verbs
+        )
+
+        items.forEach { item ->
+            BottomNavigationItem(
+                selected = currentRoute == item.route,
+                onClick = {
+                    navController.navigate(item.route) {
+                        popUpTo(navController.graph.startDestinationId)
+                        launchSingleTop = true
+                    }
+                },
+                icon = { Icon(item.icon, contentDescription = null) },
+                label = { Text(text = stringResource(id = item.label)) })
+        }
+    }
+}
+
+@Composable
+fun NavigationHost(navController: NavController, padding: PaddingValues) {
+    NavHost(
+        navController as NavHostController,
+        startDestination = BottomNavItem.Vocabulary.route,
+        modifier = Modifier.padding(padding)
+    ) {
+        composable(BottomNavItem.Vocabulary.route) {
+            ListVocabulary(listItems)
+        }
+        composable(BottomNavItem.Grammar.route) {
+            Text(text = stringResource(id = R.string.grammar_title))
+        }
+        composable(BottomNavItem.Verbs.route) {
+            Text(text = stringResource(id = R.string.verbs_title))
+        }
+    }
+}
+
 @Composable
 fun ListPage(listItems: List<ListItem>, isGrammarRulesList: Boolean = false) {
+    val navController = rememberNavController()
+    Scaffold(bottomBar = { BottomNavigationBar(navController) }) { innerPadding ->
+        NavigationHost(navController, innerPadding)
+    }
+}
+
+@Composable
+fun ListVocabulary(listItems: List<ListItem>, isGrammarRulesList: Boolean = false) {
     LazyColumn {
         items(listItems) { li ->
             Row(
@@ -43,7 +121,11 @@ fun ListPage(listItems: List<ListItem>, isGrammarRulesList: Boolean = false) {
                         .padding(start = 5.dp, end = 5.dp)
                 ) {
                     Text(text = li.title, fontSize = 28.sp, modifier = Modifier.padding(10.dp))
-                    Text(text = li.subTitle, fontSize = 20.sp, modifier = Modifier.padding(10.dp))
+                    Text(
+                        text = li.subTitle,
+                        fontSize = 20.sp,
+                        modifier = Modifier.padding(10.dp)
+                    )
                 }
                 if (isGrammarRulesList) Column(
                     verticalArrangement = Arrangement.Center,
@@ -51,7 +133,7 @@ fun ListPage(listItems: List<ListItem>, isGrammarRulesList: Boolean = false) {
                 ) {
                     Icon(
                         painter = painterResource(id = R.drawable.baseline_star_border_24),
-                        contentDescription = "Favori",
+                        contentDescription = stringResource(R.string.content_description_favorite),
                         modifier = Modifier
                             .weight(1F)
                             .size(34.dp)
@@ -68,5 +150,9 @@ fun ListPage(listItems: List<ListItem>, isGrammarRulesList: Boolean = false) {
 )
 @Composable
 fun ListPagePreview() {
-    ListPage(listItems)
+    val navController = rememberNavController()
+//    ListPage(listItems)
+    Scaffold(bottomBar = { BottomNavigationBar(navController) }) { innerPadding ->
+        NavigationHost(navController, innerPadding)
+    }
 }

@@ -14,4 +14,5 @@
     <string name="title_activity_card_view">CardView</string>
     <string name="title_activity_translation_view">TranslationView</string>
     <string name="title_activity_rules_view">RulesView</string>
+    <string name="content_description_favorite">Favori</string>
 </resources>
