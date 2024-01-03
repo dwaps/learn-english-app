@@ -27,18 +27,18 @@
             android:exported="false"
             android:label="@string/title_activity_card_view"
             android:theme="@style/Theme.LearnEnglish" />
-        <activity
-            android:name=".activity.ListPageActivity"
-            android:exported="false"
-            android:label="@string/title_activity_list_view"
-            android:theme="@style/Theme.LearnEnglish" />
+<!--        <activity-->
+<!--            android:name=".activity.ListPageActivity"-->
+<!--            android:exported="false"-->
+<!--            android:label="@string/title_activity_list_view"-->
+<!--            android:theme="@style/Theme.LearnEnglish" />-->
         <activity
             android:name=".activity.SettingsActivity"
             android:exported="false"
             android:label="@string/title_activity_settings"
             android:theme="@style/Theme.LearnEnglish" />
         <activity
-            android:name=".activity.HomeActivity"
+            android:name=".activity.ListPageActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.LearnEnglish">
