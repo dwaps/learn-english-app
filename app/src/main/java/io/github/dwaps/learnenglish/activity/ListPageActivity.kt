@@ -11,8 +11,10 @@ import io.github.dwaps.learnenglish.ui.ListPage
 import io.github.dwaps.learnenglish.ui.theme.LearnEnglishTheme
 
 class ListPageActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             LearnEnglishTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {

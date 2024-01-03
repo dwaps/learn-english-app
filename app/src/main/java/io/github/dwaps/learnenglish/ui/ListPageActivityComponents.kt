@@ -24,7 +24,6 @@ import io.github.dwaps.learnenglish.R
 import io.github.dwaps.learnenglish.models.ListItem
 import io.github.dwaps.learnenglish.models.listItems
 
-
 @Composable
 fun ListPage(listItems: List<ListItem>, isGrammarRulesList: Boolean = false) {
     LazyColumn {
