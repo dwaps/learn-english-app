@@ -14,33 +14,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LearnEnglish"
         tools:targetApi="31">
-        <activity
-            android:name=".activity.GrammarActivity"
-            android:exported="false"
-            android:label="@string/title_activity_rules_view"
-            android:theme="@style/Theme.LearnEnglish" />
+<!--        <activity-->
+<!--            android:name=".activity.GrammarActivity"-->
+<!--            android:exported="false"-->
+<!--            android:label="@string/title_activity_rules_view"-->
+<!--            android:theme="@style/Theme.LearnEnglish" />-->
         <activity
             android:name=".activity.VerbsActivity"
             android:exported="false"
             android:label="@string/title_activity_translation_view"
             android:theme="@style/Theme.LearnEnglish" />
+<!--        <activity-->
+<!--            android:name=".activity.VocabActivity"-->
+<!--            android:exported="false"-->
+<!--            android:label="@string/title_activity_card_view"-->
+<!--            android:theme="@style/Theme.LearnEnglish" />-->
         <activity
-            android:name=".activity.VocabActivity"
+            android:name=".activity.ListPageActivity"
             android:exported="false"
-            android:label="@string/title_activity_card_view"
+            android:label="@string/title_activity_list_view"
             android:theme="@style/Theme.LearnEnglish" />
-        <!--        <activity-->
-        <!--            android:name=".activity.ListPageActivity"-->
-        <!--            android:exported="false"-->
-        <!--            android:label="@string/title_activity_list_view"-->
-        <!--            android:theme="@style/Theme.LearnEnglish" />-->
         <activity
             android:name=".activity.SettingsActivity"
             android:exported="false"
             android:label="@string/title_activity_settings"
             android:theme="@style/Theme.LearnEnglish" />
         <activity
-            android:name=".activity.ListPageActivity"
+            android:name=".activity.VocabActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.LearnEnglish">

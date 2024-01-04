@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import io.github.dwaps.learnenglish.ui.VerbsPage
 import io.github.dwaps.learnenglish.ui.theme.LearnEnglishTheme
 
 class VerbsActivity : ComponentActivity() {
@@ -14,11 +14,8 @@ class VerbsActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             LearnEnglishTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
+                Surface(modifier = Modifier.fillMaxSize()) {
+                    VerbsPage()
                 }
             }
         }
