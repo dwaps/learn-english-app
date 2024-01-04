@@ -43,7 +43,9 @@ import io.github.dwaps.learnenglish.models.ListItem
 import io.github.dwaps.learnenglish.models.listItems
 
 sealed class BottomNavItem(val route: String, val icon: ImageVector, @StringRes var label: Int) {
-    data object Vocabulary : BottomNavItem("vocabulary", Icons.Default.Home, R.string.vocabulary_title)
+    data object Vocabulary :
+        BottomNavItem("vocabulary", Icons.Default.Home, R.string.vocabulary_title)
+
     data object Grammar : BottomNavItem("grammar", Icons.Default.Search, R.string.grammar_title)
     data object Verbs : BottomNavItem("verbs", Icons.Default.Person, R.string.verbs_title)
 }
@@ -83,13 +85,15 @@ fun NavigationHost(navController: NavController, padding: PaddingValues) {
         modifier = Modifier.padding(padding)
     ) {
         composable(BottomNavItem.Vocabulary.route) {
+            // TODO: Change specific list to common list
             ListVocabulary(listItems)
         }
         composable(BottomNavItem.Grammar.route) {
-            Text(text = stringResource(id = R.string.grammar_title))
+            // TODO: Change specific list to common list
+            ListVocabulary(listItems)
         }
         composable(BottomNavItem.Verbs.route) {
-            Text(text = stringResource(id = R.string.verbs_title))
+            VerbsPage()
         }
     }
 }
