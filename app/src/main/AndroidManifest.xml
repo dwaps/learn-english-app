@@ -40,7 +40,7 @@
             android:label="@string/title_activity_settings"
             android:theme="@style/Theme.LearnEnglish" />
         <activity
-            android:name=".activity.VocabActivity"
+            android:name=".activity.GrammarActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.LearnEnglish">
