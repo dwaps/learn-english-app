@@ -43,9 +43,9 @@ import io.github.dwaps.learnenglish.models.ListItem
 import io.github.dwaps.learnenglish.models.listItems
 
 sealed class BottomNavItem(val route: String, val icon: ImageVector, @StringRes var label: Int) {
-    object Vocabulary : BottomNavItem("vocabulary", Icons.Default.Home, R.string.vocabulary_title)
-    object Grammar : BottomNavItem("grammar", Icons.Default.Search, R.string.grammar_title)
-    object Verbs : BottomNavItem("verbs", Icons.Default.Person, R.string.verbs_title)
+    data object Vocabulary : BottomNavItem("vocabulary", Icons.Default.Home, R.string.vocabulary_title)
+    data object Grammar : BottomNavItem("grammar", Icons.Default.Search, R.string.grammar_title)
+    data object Verbs : BottomNavItem("verbs", Icons.Default.Person, R.string.verbs_title)
 }
 
 @Composable
@@ -95,7 +95,7 @@ fun NavigationHost(navController: NavController, padding: PaddingValues) {
 }
 
 @Composable
-fun ListPage(listItems: List<ListItem>, isGrammarRulesList: Boolean = false) {
+fun ListPage() {
     val navController = rememberNavController()
     Scaffold(bottomBar = { BottomNavigationBar(navController) }) { innerPadding ->
         NavigationHost(navController, innerPadding)

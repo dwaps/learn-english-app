@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import io.github.dwaps.learnenglish.models.listItems
 import io.github.dwaps.learnenglish.ui.ListPage
 import io.github.dwaps.learnenglish.ui.theme.LearnEnglishTheme
 
@@ -18,7 +17,7 @@ class ListPageActivity : ComponentActivity() {
         setContent {
             LearnEnglishTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    ListPage(listItems)
+                    ListPage()
                 }
             }
         }
